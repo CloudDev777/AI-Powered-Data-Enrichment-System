@@ -1,0 +1,68 @@
+<!-- templates/configure.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure Enrichment - AI Data Enrichment System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">Configure Data Enrichment</h3>
+                    </div>
+                    <div class="card-body">
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-info">{{ message }}</div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                        
+                        <form action="{{ url_for('process_data') }}" method="post">
+                            <div class="mb-3">
+                                <label for="column_name" class="form-label">Select column to enrich:</label>
+                                <select class="form-select" id="column_name" name="column_name" required>
+                                    <option value="">Select a column</option>
+                                    {% for column in columns %}
+                                        <option value="{{ column }}">{{ column }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="query_template" class="form-label">Search query template:</label>
+                                <input type="text" class="form-control" id="query_template" name="query_template" 
+                                       placeholder="Use {value} as placeholder for column value" 
+                                       value="Information about {value}" required>
+                                <div class="form-text">Example: "Company information about {value}"</div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="extraction_schema" class="form-label">Information extraction schema (JSON):</label>
+                                <textarea class="form-control" id="extraction_schema" name="extraction_schema" rows="6" required>{
+  "name": "string",
+  "description": "string",
+  "founded_year": "number",
+  "industry": "string",
+  "key_facts": ["string"]
+}</textarea>
+                                <div class="form-text">Define the structure of information you want to extract</div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Start Enrichment Process</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

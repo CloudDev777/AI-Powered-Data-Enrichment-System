@@ -1,0 +1,8 @@
+langchain
+pandas
+flask
+plotly
+serpapi
+python-dotenv
+langchain_groq
+gunicorn
