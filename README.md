@@ -4,11 +4,6 @@ _Automate lead generation with LLM-enhanced web scraping and CRM-ready outputs_
 ![Screenshot 2025-03-22 at 3 14 57 PM](https://github.com/user-attachments/assets/fc087e11-6210-4932-9678-f246da63b74a)
 
 
-![Stars](https://img.shields.io/github/stars/rishi02102017/caprae-leadgen-tool?style=social)
-![Forks](https://img.shields.io/github/forks/rishi02102017/caprae-leadgen-tool?style=social)
-![Issues](https://img.shields.io/github/issues/rishi02102017/caprae-leadgen-tool)
-
-
 ## 🧠 Overview
 
 **AI-Powered Data Enrichment System** is an end-to-end automation tool that transforms raw tabular data (CSV) into enriched, structured information for lead generation, marketing, and CRM systems.
